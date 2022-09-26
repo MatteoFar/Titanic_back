@@ -9,7 +9,10 @@ const router = express.Router();
 router.get("/testDB", testDB);
 router.post("signup", signUp);
 
-function signUp(req, res) {}
+function signUp(req, res) {
+  console.log(req.body);
+  res.send("donnée envoyé !");
+}
 
 function testDB(req, res) {
   UsersModel.find().then((data) => {
