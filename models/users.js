@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const usersSchema = new mongoose.Schema({
-  _id: { type: mongoose.Schema.Types.ObjectId },
+  // _id: { type: mongoose.Schema.Types.ObjectId },
   firstname: { type: String },
   lastname: { type: String },
   email: { type: String },
