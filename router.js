@@ -3,10 +3,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const UsersModel = require("./models/users");
+const PassengersModel = require("./models/passengers");
+const secureRoutePassengers = require("./middleware/secureRoutePassengers");
 
 const router = express.Router();
 
-router.get("/testDB", testDB);
+router.get("/getAllPassengers", secureRoutePassengers, getAllPassengers);
 router.post("/signup", addUser);
 router.post("/signin", login);
 
@@ -79,10 +81,9 @@ function login(req, res) {
   }
 }
 
-function testDB(req, res) {
-  UsersModel.find().then((data) => {
-    console.log(data);
-    res.send(`Voici les données ${data}`);
+function getAllPassengers(req, res) {
+  PassengersModel.find().then((data) => {
+    res.status(200).send({ message: `Donnée envoyé !`, value: data });
   });
 }
 
