@@ -47,7 +47,7 @@ function login(req, res) {
       if (!user) {
         console.log("account Not found !");
         return res
-          .status(404)
+          .status(205)
           .send({ type: "login", message: "Compte introuvable" });
       }
       console.log("account found !");
